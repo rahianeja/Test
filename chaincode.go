@@ -112,7 +112,7 @@ func (t *SimpleChaincode) read(stub shim.ChaincodeStubInterface, args []string) 
 	
     key = args[0]
 	if Key == "Peer0" or Key == "Peer1" {
-		valAsbytes, err := stub.GetState(key)
+		valAsbytes, err := stub.GetState("Peer0Key")
 		if err != nil {
 			jsonResp = "{\"Error\":\"Failed to get state for " + key + "\"}"
 			return nil, errors.New(jsonResp)
